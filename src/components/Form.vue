@@ -219,17 +219,11 @@ export default {
     },
     confirm() {
       this.nameConfirm();
-      console.log(1);
       this.foreignNameConfirm();
-      console.log(2);
       this.emailConfrim(); 
-      console.log(3);
       this.passNumConfirm();
-      console.log(4);
       this.passSerConfirm();
-      console.log(5);
       this.dateOfBirthConfirm();
-      console.log(6);
       console.log(this.formData);    
     },
     getCountry(searchWord) {
@@ -243,7 +237,6 @@ export default {
         const fathersName = this.formData.fathersName;
         const prevName = this.formData.prevName;
         const prevLastName = this.formData.prevLastName;
-        console.log(this.nameChanged + "THIS NAME CHANGED")
         if(!name.match(regexp)) {
           document.querySelector('.personName').classList.add('incorrect')
         }
