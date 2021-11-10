@@ -227,7 +227,7 @@ export default {
       console.log(this.formData);    
     },
     getCountry(searchWord) {
-      console.log("FETCH COUNTRY: GET COUNTRY FROM API", searchWord);
+      ("FETCH COUNTRY: GET COUNTRY FROM API", searchWord);
     },
     nameConfirm() {
       if(this.formData.nationality == "Russia" || this.formData.nationality == "") {
