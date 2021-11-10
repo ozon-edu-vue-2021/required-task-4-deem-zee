@@ -158,14 +158,11 @@
 </template>
 
 <script>
-
 import citizenships from "../assets/data/citizenships.json";
 import ClickOutside from 'vue-click-outside';
 import passType from "../assets/data/passport-types.json";
 // import {debounce} from "../helpers/debounce.js";
 import {throttle} from "../helpers/throttle.js"
-
-
 export default {
   data() {
     return {
@@ -196,15 +193,12 @@ export default {
       debouncedCountry: null,
       searchWord: "",
       throttledSearchCountry: null,
-
     };
   },
-
   methods: {
     hide() {
       this.isDropdownOpen = false;
     },
-
     hidePassType() {
       this.isDropdownOpenPassType = false;
     },
@@ -225,11 +219,17 @@ export default {
     },
     confirm() {
       this.nameConfirm();
+      console.log(1);
       this.foreignNameConfirm();
+      console.log(2);
       this.emailConfrim(); 
+      console.log(3);
       this.passNumConfirm();
+      console.log(4);
       this.passSerConfirm();
+      console.log(5);
       this.dateOfBirthConfirm();
+      console.log(6);
       console.log(this.formData);    
     },
     getCountry(searchWord) {
@@ -264,7 +264,7 @@ export default {
       }
     },
       foreignNameConfirm() {
-      if(this.formData.nationality !== "Russia") {
+      if(this.formData.nationality !== "Russia" && this.formData.nationality !=="") {
         const regexpRu = /[\\а-яА-я]+$/;
         const regexp = /[\\a-zA-z]+$/;
         const foreignName = this.formData.foreignName;
@@ -297,7 +297,7 @@ export default {
       }
     },
     passSerConfirm() {
-      if(this.formData.nationality == "Russia") {
+      if(this.formData.nationality == "Russia" || this.formData.nationality == "") {
         let regexp = /^[0-9]{4}$/;
         if(!this.formData.passSer.match(regexp)) {
           document.querySelector('.passSer').classList.add('incorrect');
@@ -335,7 +335,6 @@ export default {
           }
         });
         this.countries = filteredCountries;
-
       for(let item of passType) {
         this.passTypes.push(item.type);
       };
@@ -350,7 +349,6 @@ export default {
    directives: {
     ClickOutside
   }, 
-
   
 };
 </script>
@@ -366,56 +364,45 @@ label {
   font-family: sans-serif;
   font-size: 24px;
 }
-
 input{
   display: block;
   margin: 10px 0;
   height: 50px;
   font-size: 24px;;
 }
-
 .name {
   width: 100%;
   display: flex;
 }
-
 input {
   border-radius: 5px;
 }
-
 .name label {
   width: 30%;
 }
-
 .name input   {
   width: 100%;
 }
-
 .dateOfBirth {
   width: 50%;
 }
-
 .dateOfBirth input {
   width: 100%;
 }
-
 .email {
   width: 100%;
 }
 .email__input {
   width: 100%
 }
-
 .radio {
   transform: scale(2);
 }
-
 li {
   list-style: none;
   font-size: 18px;
   margin: 2px;
 }
-
 .row .nationality-selector {
   width: 50%
 }
@@ -426,54 +413,41 @@ li {
    width: 50%;
    border-radius: 5px;
  }
-
   li:hover {
    background: rgb(178, 238, 240);
    cursor: pointer;
  }
-
 .foreigner__container {
   width: 100%;
   display: flex;
-
 }
 .foreigner__container label {
   width: 50%;
 }
-
 .foreigner__container label input{
   width: 100%
 }
-
  .disable-scrollbars::-webkit-scrollbar {
     width: 0px;
     background: transparent;
 }
-
 .passCountry-selector li {
   width: 15%;
 }
-
 .incorrect {
   border: 1px solid red;
 }
-
 .arrow {
   position: relative;
   top: 50px;
   left: 60px
 }
-
 .arrow-nationality {
   position: relative;
   top: 50px;
   left: 85px;
 }
-
 label {
   opacity: 0.5;
 }
-
-
-
 </style>
